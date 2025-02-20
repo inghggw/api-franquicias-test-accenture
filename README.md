@@ -33,7 +33,7 @@ docker-compose up --build -d
 - ✅ MySQL en puerto 3380
 - ✅ API en puerto 8033
 
-### 3️⃣ Importar en Postman el <b>´collection.json´</b> para testear la API.
+### 3️⃣ Importar en Postman el "collection.json" para testear la API.
 
 💡 Autor
 Henry Giovanny Gonzalez Waltero
