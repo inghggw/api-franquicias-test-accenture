@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:8.3
+    container_name: mysql_franquicias
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: franquicias_db
+    ports:
+      - "3380:3380"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: spring_franquicias
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8033:8033"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3380/franquicias_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_DATASOURCE_PORT: 3380
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["./gradlew", "bootRun"]
+
+volumes:
+  mysql_data:
