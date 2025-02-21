@@ -1,28 +1,27 @@
 services:
-  mysql:
-    image: mysql:8.3
-    container_name: mysql_franquicias
+  database:
+    image: mariadb:11
+    container_name: mariadb_franquicias
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: franquicias_db
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: franquicias
+      MARIADB_USER: app
+      MARIADB_PASSWORD: secret
     ports:
       - "3380:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql
 
   app:
     build: .
     container_name: spring_franquicias
     restart: always
     depends_on:
-      - mysql
+      - database
     ports:
       - "8033:8033"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/franquicias_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: secret
       SPRING_DEVTOOLS_RESTART_ENABLED: "true"
       SPRING_DEVTOOLS_LIVERELOAD_ENABLED: "true"
     volumes:
@@ -32,4 +31,4 @@ services:
     command: ["/bin/sh", "-c", "./gradlew build --continuous & sleep 5 && ./gradlew bootRun"]
 
 volumes:
-  mysql_data:
+  mariadb_data:
