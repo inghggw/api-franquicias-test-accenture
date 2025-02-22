@@ -37,7 +37,30 @@ public class ProductoService {
 							.switchIfEmpty(productoRepository.save(new Producto(null, nombre)));
 				})
 				.flatMap(producto -> {
-					SucursalProducto sucursalProducto = new SucursalProducto(null, sucursalId, producto.getId(), stock);
+					return sucursalProductoRepository
+							.findBySucursalIdAndProductoId(sucursalId, producto.getId())
+							.flatMap(_ -> Mono.error(new ResponseStatusException(
+									HttpStatus.BAD_REQUEST, "El producto ya está registrado en la sucursal")))
+							.switchIfEmpty(
+									sucursalProductoRepository.save(new SucursalProducto(null, sucursalId, producto.getId(), stock)));
+				})
+				.then();
+	}
+
+	public Mono<Void> deleteProductoSucursal(Long sucursalId, Long productoId) {
+		return sucursalProductoRepository
+				.findBySucursalIdAndProductoId(sucursalId, productoId)
+				.switchIfEmpty(Mono.error(new ResponseStatusException(
+						HttpStatus.NOT_FOUND, "El producto no existe en la sucursal")))
+				.flatMap(sucursalProductoRepository::delete);
+	}
+
+	public Mono<Void> updateStock(Long sucursalId, Long productoId, Integer stock) {
+		return sucursalProductoRepository.findBySucursalIdAndProductoId(sucursalId, productoId)
+				.switchIfEmpty(Mono.error(new ResponseStatusException(
+						HttpStatus.NOT_FOUND, "No se encontró el producto en la sucursal")))
+				.flatMap(sucursalProducto -> {
+					sucursalProducto.setStock(stock);
 					return sucursalProductoRepository.save(sucursalProducto);
 				})
 				.then();
