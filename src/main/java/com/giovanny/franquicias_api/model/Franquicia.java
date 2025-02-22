@@ -1,7 +1,5 @@
 package com.giovanny.franquicias_api.model;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -17,6 +15,4 @@ public class Franquicia {
 
     @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
-
-    private List<Sucursal> sucursales;
 }
