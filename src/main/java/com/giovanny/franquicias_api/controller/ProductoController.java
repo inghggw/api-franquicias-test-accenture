@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.giovanny.franquicias_api.dto.ProductoRequest;
 import com.giovanny.franquicias_api.dto.ProductoStockResponse;
 import com.giovanny.franquicias_api.dto.UpdateStockRequest;
+import com.giovanny.franquicias_api.model.Producto;
 import com.giovanny.franquicias_api.service.ProductoService;
 
 import jakarta.validation.Valid;
@@ -71,5 +72,16 @@ public class ProductoController {
 		return productoService.getMaxStockBySucursal(franquiciaId)
 				.collectList()
 				.map(ResponseEntity::ok);
+	}
+
+	@PutMapping("/{id}")
+	public Mono<ResponseEntity<Map<String, String>>> update(@PathVariable Long id,
+			@Valid @RequestBody Producto request) {
+		return productoService.update(id, request.getNombre())
+				.then(Mono.fromCallable(() -> {
+					Map<String, String> response = new HashMap<>();
+					response.put("message", "Nombre del producto actualizado correctamente");
+					return ResponseEntity.ok(response);
+				}));
 	}
 }

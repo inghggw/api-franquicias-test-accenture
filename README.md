@@ -1,11 +1,11 @@
 # 📌 Franquicias API - Test Accenture
 
-Esta es una API REST desarrollada en **Java 23** con **Spring Boot 3.4.2** y **Gradle**.
+Esta es una API REST desarrollada en **Java 23** con **Spring Boot 3.4.3** y **Gradle**.
 La API permite gestionar un CRUD de franquicias y se ejecuta en **Docker**.
 
 ## 🚀 Tecnologías Utilizadas
 - **Java 23**
-- **Spring Boot 3.4.2**
+- **Spring Boot 3.4.3**
 - **Webflux - Progamación Reactiva**
 - **Gradle**
 - **Mariadb 11**
@@ -48,9 +48,9 @@ docker-compose up --build -d
 * /producto/{sucursalId}/{productoId} (DELETE) => eliminar producto de la sucursal
 * /producto/stock (PUT) => modificar stock de producto
 * /stock-max/{franquiciaId} (GET)=> producto max stock por sucursal de una franquicia
-* / (PUT)=>
-* / (PUT)=>
-* / (PUT)=>
+* /franquicia/{franquiciaId} (PUT) => actualizar nombre de franquicia
+* /sucursal/{sucursalId} (PUT) => actualizar nombre de sucursal
+* /producto/{productoId} (PUT) => actualizar nombre de producto
 
 ---
 

@@ -78,4 +78,13 @@ public class ProductoService {
 										sucursal.getNombre(),
 										sucursalProducto.getStock()))));
 	}
+
+	public Mono<Producto> update(Long id, String nombre) {
+		return productoRepository.findById(id)
+				.switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Producto no encontrado")))
+				.flatMap(producto -> {
+					producto.setNombre(nombre);
+					return productoRepository.save(producto);
+				});
+	}
 }

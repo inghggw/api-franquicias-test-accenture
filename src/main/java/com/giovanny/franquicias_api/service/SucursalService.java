@@ -25,4 +25,13 @@ public class SucursalService {
 				.switchIfEmpty(sucursalRepository.save(sucursal))
 				.cast(Sucursal.class);
 	}
+
+	public Mono<Sucursal> update(Long id, String nombre) {
+		return sucursalRepository.findById(id)
+				.switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Sucursal no encontrada")))
+				.flatMap(sucursal -> {
+					sucursal.setNombre(nombre);
+					return sucursalRepository.save(sucursal);
+				});
+	}
 }
