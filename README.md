@@ -1,19 +1,20 @@
-# 📌 Franquicias API
+# 📌 Franquicias API - Test Accenture
 
 Esta es una API REST desarrollada en **Java 23** con **Spring Boot 3.4.2** y **Gradle**.
-La API permite gestionar un CRUD de franquicias y se ejecuta en **Docker** con **MySQL 8.3**.
+La API permite gestionar un CRUD de franquicias y se ejecuta en **Docker**.
 
 ## 🚀 Tecnologías Utilizadas
 - **Java 23**
 - **Spring Boot 3.4.2**
+- **Webflux - Progamación Reactiva**
 - **Gradle**
-- **MySQL 8.3**
+- **Mariadb 11**
 - **Docker & Docker Compose**
 
 ---
 
 ## **📦 Requisitos Previos**
-Antes de ejecutar la API, asegúrate de tener instalados:
+Antes de ejecutar la API, hay que tener instalados:
 - **Docker** (versión 20+)
 - **Docker Compose** (versión 1.29+)
 
@@ -30,10 +31,29 @@ cd api-franquicias-test-accenture
 docker-compose up --build -d
 ```
 
-- ✅ MySQL en puerto 3380
+- ✅ Mariadb 11 puerto 3380
 - ✅ API en puerto 8033
 
-### 3️⃣ Importar en Postman el "collection.json" para testear la API.
+### 3️⃣ Importar en Postman el "collection_postman.json" para testear la API.
+
+## Endpoints
+
+### Local => http://localhost:8033/api/
+### Cloud => http://54.221.50.254:8033/api/
+
+* /franquicia (POST) => agregar una nueva franquicia
+* /franquicia (GET) => listar las franquicias
+* /sucursal (POST) => agregar nueva sucursal a franquicia
+* /producto (POST) => agregar nuevo producto a sucursal
+* /producto/{sucursalId}/{productoId} (DELETE) => eliminar producto de la sucursal
+* /producto/stock (PUT) => modificar stock de producto
+* /stock-max/{franquiciaId} (GET)=> producto max stock por sucursal de una franquicia
+* / (PUT)=>
+* / (PUT)=>
+* / (PUT)=>
+
+---
 
 💡 Autor
+
 Henry Giovanny Gonzalez Waltero

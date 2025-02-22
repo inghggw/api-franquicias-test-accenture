@@ -7,5 +7,8 @@ import com.giovanny.franquicias_api.model.SucursalProducto;
 import reactor.core.publisher.Mono;
 
 public interface SucursalProductoRepository extends ReactiveCrudRepository<SucursalProducto, Long> {
+
 	Mono<SucursalProducto> findBySucursalIdAndProductoId(Long sucursalId, Long productoId);
+
+	Mono<SucursalProducto> findTopBySucursalIdOrderByStockDesc(Long sucursalId);
 }

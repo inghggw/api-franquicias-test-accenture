@@ -4,12 +4,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.giovanny.franquicias_api.dto.ProductoStockResponse;
 import com.giovanny.franquicias_api.model.Producto;
 import com.giovanny.franquicias_api.model.SucursalProducto;
 import com.giovanny.franquicias_api.repository.ProductoRepository;
 import com.giovanny.franquicias_api.repository.SucursalProductoRepository;
 import com.giovanny.franquicias_api.repository.SucursalRepository;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -64,5 +66,16 @@ public class ProductoService {
 					return sucursalProductoRepository.save(sucursalProducto);
 				})
 				.then();
+	}
+
+	public Flux<ProductoStockResponse> getMaxStockBySucursal(Long franquiciaId) {
+		return sucursalRepository.findByFranquiciaId(franquiciaId)
+				.flatMap(sucursal -> sucursalProductoRepository.findTopBySucursalIdOrderByStockDesc(sucursal.getId())
+						.flatMap(sucursalProducto -> productoRepository.findById(sucursalProducto.getProductoId())
+								.map(producto -> new ProductoStockResponse(
+										producto.getNombre(),
+										sucursal.getId(),
+										sucursal.getNombre(),
+										sucursalProducto.getStock()))));
 	}
 }
