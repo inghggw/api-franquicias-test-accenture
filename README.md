@@ -34,23 +34,14 @@ docker-compose up --build -d
 - ✅ Mariadb 11 puerto 3380
 - ✅ API en puerto 8033
 
-### 3️⃣ Importar en Postman el "collection_postman.json" para testear la API.
+### 3️⃣ Documentación API:
+* [Documentación online Postman](https://documenter.getpostman.com/view/1506313/2sAYdcrCYE)
+* Importar en Postman el "postman_collection.json" para testear la API desde local.
 
-## Endpoints
+## Host Endpoints
 
 ### Local => http://localhost:8033/api/
 ### Cloud => http://54.221.50.254:8033/api/
-
-* /franquicia (POST) => agregar una nueva franquicia
-* /franquicia (GET) => listar las franquicias
-* /sucursal (POST) => agregar nueva sucursal a franquicia
-* /producto (POST) => agregar nuevo producto a sucursal
-* /producto/{sucursalId}/{productoId} (DELETE) => eliminar producto de la sucursal
-* /producto/stock (PUT) => modificar stock de producto
-* /stock-max/{franquiciaId} (GET)=> producto max stock por sucursal de una franquicia
-* /franquicia/{franquiciaId} (PUT) => actualizar nombre de franquicia
-* /sucursal/{sucursalId} (PUT) => actualizar nombre de sucursal
-* /producto/{productoId} (PUT) => actualizar nombre de producto
 
 ---
 

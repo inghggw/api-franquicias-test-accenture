@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "94dd1eae-f5a4-405a-a131-11a871847e44",
+		"name": "Test Api Accenture Giovanny",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "agregar nueva franquicia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"tres\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}franquicia",
+					"host": [
+						"{{host}}franquicia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar franquicias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}franquicia",
+					"host": [
+						"{{host}}franquicia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar nueva sucursal a franquicia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Sucursal 3\",\n    \"franquiciaId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}sucursal",
+					"host": [
+						"{{host}}sucursal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar nuevo producto a sucursal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sucursalId\": 3,\n  \"nombre\": \"Coca light\",\n  \"stock\": 120\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}producto",
+					"host": [
+						"{{host}}producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar producto de la sucursal",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}producto/{{sucursalId}}/{{productoId}}",
+					"host": [
+						"{{host}}producto"
+					],
+					"path": [
+						"{{sucursalId}}",
+						"{{productoId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar stock de producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sucursalId\": 1,\n  \"productoId\": 2,\n  \"stock\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}producto/stock",
+					"host": [
+						"{{host}}producto"
+					],
+					"path": [
+						"stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "producto max stock por sucursal de una franquicia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}producto/stock-max/{{franquiciaId}}",
+					"host": [
+						"{{host}}producto"
+					],
+					"path": [
+						"stock-max",
+						"{{franquiciaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar  nombre de franquicia",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}franquicia/{{franquiciaId}}",
+					"host": [
+						"{{host}}franquicia"
+					],
+					"path": [
+						"{{franquiciaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar nombre de sucursal",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Cambio sucursal\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}sucursal/{{sucursalId}}",
+					"host": [
+						"{{host}}sucursal"
+					],
+					"path": [
+						"{{sucursalId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar nombre de producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Coca Cola\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}producto/{{productoId}}",
+					"host": [
+						"{{host}}producto"
+					],
+					"path": [
+						"{{productoId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8033/api/"
+		},
+		{
+			"key": "franquiciaId",
+			"value": "1"
+		},
+		{
+			"key": "sucursalId",
+			"value": "1"
+		},
+		{
+			"key": "productoId",
+			"value": "1"
+		}
+	]
+}
