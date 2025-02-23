@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"tres\"\n}",
+					"raw": "{\n    \"nombre\": \"Juan Valdez\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -26,7 +26,45 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "agregar nueva franquicia",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Valdez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}franquicia",
+							"host": [
+								"{{host}}franquicia"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"nombre\": \"Juan Valdez\"\n}"
+				}
+			]
 		},
 		{
 			"name": "listar franquicias",
@@ -40,7 +78,36 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "listar franquicias",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}franquicia",
+							"host": [
+								"{{host}}franquicia"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"Frisby\"\n    },\n    {\n        \"id\": 2,\n        \"nombre\": \"Subway\"\n    },\n    {\n        \"id\": 3,\n        \"nombre\": \"Juan Valdez\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "agregar nueva sucursal a franquicia",
@@ -49,7 +116,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Sucursal 3\",\n    \"franquiciaId\": 1\n}",
+					"raw": "{\n    \"nombre\": \"Centro - Ibagué\",\n    \"franquiciaId\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -63,7 +130,45 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "agregar nueva sucursal a franquicia",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Centro - Ibagué\",\n    \"franquiciaId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}sucursal",
+							"host": [
+								"{{host}}sucursal"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Centro - Ibagué\",\n    \"franquiciaId\": 1\n}"
+				}
+			]
 		},
 		{
 			"name": "agregar nuevo producto a sucursal",
@@ -72,7 +177,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"sucursalId\": 3,\n  \"nombre\": \"Coca light\",\n  \"stock\": 120\n}",
+					"raw": "{\n  \"sucursalId\": 1,\n  \"nombre\": \"Alitas BBQ familiar\",\n  \"stock\": 80\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -86,7 +191,45 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "agregar nuevo producto a sucursal",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sucursalId\": 1,\n  \"nombre\": \"Alitas BBQ personal\",\n  \"stock\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}producto",
+							"host": [
+								"{{host}}producto"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Producto registrado en la sucursal con éxito\"\n}"
+				}
+			]
 		},
 		{
 			"name": "eliminar producto de la sucursal",
@@ -104,7 +247,40 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "eliminar producto de la sucursal",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}producto/{{sucursalId}}/{{productoId}}",
+							"host": [
+								"{{host}}producto"
+							],
+							"path": [
+								"{{sucursalId}}",
+								"{{productoId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Producto eliminado de la sucursal con éxito\"\n}"
+				}
+			]
 		},
 		{
 			"name": "modificar stock de producto",
@@ -113,7 +289,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"sucursalId\": 1,\n  \"productoId\": 2,\n  \"stock\": 50\n}",
+					"raw": "{\n  \"sucursalId\": 1,\n  \"productoId\": 1,\n  \"stock\": 80\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -130,7 +306,48 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "modificar stock de producto",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sucursalId\": 1,\n  \"productoId\": 1,\n  \"stock\": 80\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}producto/stock",
+							"host": [
+								"{{host}}producto"
+							],
+							"path": [
+								"stock"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Stock actualizado correctamente\"\n}"
+				}
+			]
 		},
 		{
 			"name": "producto max stock por sucursal de una franquicia",
@@ -148,7 +365,40 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "producto max stock por sucursal de una franquicia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}producto/stock-max/{{franquiciaId}}",
+							"host": [
+								"{{host}}producto"
+							],
+							"path": [
+								"stock-max",
+								"{{franquiciaId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"nombreProducto\": \"Alitas BBQ personal\",\n        \"sucursalId\": 1,\n        \"nombreSucursal\": \"Centro - Ibagué\",\n        \"stock\": 80\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "actualizar  nombre de franquicia",
@@ -157,7 +407,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Test\"\n}",
+					"raw": "{\n    \"nombre\": \"FRISBY\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -174,7 +424,48 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "actualizar  nombre de franquicia",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"FRISBY\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}franquicia/{{franquiciaId}}",
+							"host": [
+								"{{host}}franquicia"
+							],
+							"path": [
+								"{{franquiciaId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Franquicia actualizada correctamente\"\n}"
+				}
+			]
 		},
 		{
 			"name": "actualizar nombre de sucursal",
@@ -183,7 +474,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Cambio sucursal\"\n}",
+					"raw": "{\n    \"nombre\": \"CENTRO\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -200,7 +491,48 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "actualizar nombre de sucursal",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"CENTRO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}sucursal/{{sucursalId}}",
+							"host": [
+								"{{host}}sucursal"
+							],
+							"path": [
+								"{{sucursalId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Sucursal actualizada correctamente\"\n}"
+				}
+			]
 		},
 		{
 			"name": "actualizar nombre de producto",
@@ -209,7 +541,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Coca Cola\"\n}",
+					"raw": "{\n    \"nombre\": \"ALITAS\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -226,7 +558,48 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "actualizar nombre de producto",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"ALITAS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}producto/{{productoId}}",
+							"host": [
+								"{{host}}producto"
+							],
+							"path": [
+								"{{productoId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Nombre del producto actualizado correctamente\"\n}"
+				}
+			]
 		}
 	],
 	"event": [
@@ -252,7 +625,7 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "http://localhost:8033/api/"
+			"value": "http://82.180.133.34:8033/api/"
 		},
 		{
 			"key": "franquiciaId",
@@ -264,7 +637,7 @@
 		},
 		{
 			"key": "productoId",
-			"value": "1"
+			"value": "2"
 		}
 	]
 }
