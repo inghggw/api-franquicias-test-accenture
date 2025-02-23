@@ -42,6 +42,7 @@ docker-compose up --build -d
 
 ### Local => http://localhost:8033/api/
 ### Cloud => http://82.180.133.34:8033/api/
+### Ejemplo Listado de franquicias => http://82.180.133.34:8033/api/franquicia
 
 ---
 
