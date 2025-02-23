@@ -34,14 +34,14 @@ docker-compose up --build -d
 - ✅ Mariadb 11 puerto 3380
 - ✅ API en puerto 8033
 
-### 3️⃣ Documentación API:
+### 3️⃣ Documentación Endpoints API:
 * [Documentación online Postman](https://documenter.getpostman.com/view/1506313/2sAYdcrCYE)
-* Importar en Postman el "postman_collection.json" para testear la API desde local.
+* Alternativa: importar en Postman el "postman_collection.json" para testear la API.
 
 ## Host Endpoints
 
 ### Local => http://localhost:8033/api/
-### Cloud => http://54.221.50.254:8033/api/
+### Cloud => http://82.180.133.34:8033/api/
 
 ---
 
